@@ -4,7 +4,7 @@ let dog = new blockLike.Sprite({
     width: 100,
     height: 100,
     color: 'transparent',
-    image: 'http://assets.stickpng.com/thumbs/585bb5b2cb11b227491c32a2.png'
+    image: 'https://www.freeiconspng.com/uploads/animal-pet-dog-icon-15.png'
 });
 
 dog.addTo(stage);
