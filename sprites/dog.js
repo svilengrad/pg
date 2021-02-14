@@ -8,6 +8,8 @@ let dog = new blockLike.Sprite({
 });
 
 dog.addTo(stage);
+dog.setRotationStyle('left-right');
+dog.pointInDirection(-90);
 
 dog.whenFlag(function() {
     this.changeX(-300);
@@ -29,11 +31,13 @@ dog.whenKeyPressed('s', function(){
 dog.whenKeyPressed('d', function(){
     if(this.x < stage.width/2-STEP){
         this.changeX(STEP);
+        this.pointInDirection(90);
     }
 });
 
 dog.whenKeyPressed('a', function(){
     if(this.x > (stage.width/2 * -1) + STEP){
         this.changeX(-STEP);
+        this.pointInDirection(-90);
     }
 });
