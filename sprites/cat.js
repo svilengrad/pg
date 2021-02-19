@@ -4,12 +4,6 @@ let cat = new blockLike.Sprite({
     color: 'transparent',
     image: 'http://clipart-library.com/images_k/cats-silhouette-vector/cats-silhouette-vector-2.png'
 });
-let stretchCostume = new blockLike.Costume({
-    width: 100,
-    height: 100,
-    color: 'transparent',
-    image: 'https://www.vhv.rs/dpng/d/440-4405944_cat-vector-png-cat-stretching-silhouette-transparent-png.png'
-})
 
 cat.addTo(stage);
 cat.setRotationStyle('left-right');
