@@ -1,5 +1,3 @@
-const STEP = 100;
-
 let dog = new blockLike.Sprite({
     width: 100,
     height: 100,
@@ -17,27 +15,22 @@ dog.whenFlag(function() {
 });
 
 dog.whenKeyPressed('w', function(){
-    if(this.y < stage.height/2-STEP){
-        this.changeY(STEP);
-    }
+    this.changeY(100);
+    
 });
 
 dog.whenKeyPressed('s', function(){
-    if(this.y > (stage.height/2 * -1) + STEP){
-        this.changeY(-STEP);
-    }
+    this.changeY(-100);
 });
 
 dog.whenKeyPressed('d', function(){
-    if(this.x < stage.width/2-STEP){
-        this.changeX(STEP);
+        this.changeX(100);
         this.pointInDirection(90);
-    }
+
 });
 
 dog.whenKeyPressed('a', function(){
-    if(this.x > (stage.width/2 * -1) + STEP){
-        this.changeX(-STEP);
+        this.changeX(-100);
         this.pointInDirection(-90);
-    }
+    
 });
