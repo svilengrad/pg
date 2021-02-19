@@ -18,15 +18,12 @@ cat.pointInDirection(-90);
 cat.whenFlag(function () {
     this.changeX(300);
     this.say("Catch me if you can!");
-})
-cat.whenClicked(function() {
-    this.say("Ouch, you stepped on me!!!")
+    cat.nextCostume();
 })
 
 cat.whenKeyPressed(' ', function() {
     console.log('stretching')
     stretchCostume.addTo(cat);
-    cat.nextCostume();
 })
 
 cat.whenKeyPressed(39, function () {// right arrow
