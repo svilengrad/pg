@@ -21,19 +21,27 @@ cat.whenKeyPressed(' ', function() {
 })
 
 cat.whenKeyPressed(39, function () {// right arrow
+    if(this.x < stage.width/ 2-100){
     this.pointInDirection(-90);
     this.changeX(100);
+    }
 });
 
 cat.whenKeyPressed(37, function () {// left arrow
+    if(this.x > (stage.width/2 * -1) + 100){
     this.pointInDirection(90);
     this.changeX(-100);
+    }
 });
 
 cat.whenKeyPressed(38, function () {// up arrow
+    if(this.y < stage.height/2-100){
     this.changeY(100);
+    }
 });
 
 cat.whenKeyPressed(40, function () {// down arrow
+    if(this.y > (stage.height/2 * -1) + 100){
     this.changeY(-100);
+    }
 });
