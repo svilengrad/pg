@@ -29,7 +29,6 @@
     stage.addBackdrop(gameover);
 
     function deleteSprite(sprite){
-        sprite.say('');
         stage.removeSprite(sprite);
     }
     
@@ -37,7 +36,8 @@
         let i = 0;
         while(true) {
             if(i == DELAY*3){
-                break;
+                stop;
+                stage.switchBackdropTo(gameover);
             }
             document.getElementById('timer').innerHTML = i+1;
             i++;
@@ -46,7 +46,7 @@
     })
 
     stage.whenFlag(function() { // normal function
-        // this.playSoundUntilDone('sounds/GoGo.mp3');
+        this.playSoundUntilDone('sounds/GoGo.mp3');
         let i = 0;
         let delayStep = DELAY;
         while(true){
@@ -59,7 +59,8 @@
             this.wait(DELAY);
             delayStep += DELAY;
             if(delayStep == DELAY*3){
-                break;
+                cat.say("I win!");
+                stop;
             }
         }
         stage.switchBackdropTo(gameover);
