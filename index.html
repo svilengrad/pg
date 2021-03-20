@@ -61,7 +61,7 @@
             if(delayStep == DELAY*3){
                 cat.say("I win!");
                 stop;
-            }
+            
         }
         stage.switchBackdropTo(gameover);
         deleteSprite(dog);
@@ -72,6 +72,8 @@
     function isGameOver(){
         if(dog.isTouching(cat)){
             dog.say("I win!");
+            stage.removeSprite(cat);
+            stage.removeSprite(dog);
         }
     }
 </script>
