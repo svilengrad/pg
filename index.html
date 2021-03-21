@@ -18,17 +18,14 @@
     let forest = new blockLike.Backdrop({
         image: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2fb2821a-1406-4a1d-9b04-6668f278e944/d874gjl-59e79083-fec5-4234-8879-2aa8afd7f9f4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMmZiMjgyMWEtMTQwNi00YTFkLTliMDQtNjY2OGYyNzhlOTQ0XC9kODc0Z2psLTU5ZTc5MDgzLWZlYzUtNDIzNC04ODc5LTJhYThhZmQ3ZjlmNC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.UMFdXoCcqHSZ0U3dFWt8351ncIACJOCM9Zrb_tBzx90'
     });
-    let river = new blockLike.Backdrop({
-        image: 'https://i.ytimg.com/vi/Dsa0XcBEBAQ/maxresdefault.jpg'
-    });
     let gameover = new blockLike.Backdrop({
         image: 'https://ak.picdn.net/shutterstock/videos/1023701914/thumb/8.jpg'
     });
     stage.addBackdrop(forest);
-    stage.addBackdrop(river);
     stage.addBackdrop(gameover);
 
     function deleteSprite(sprite){
+        sprite.say("");
         stage.removeSprite(sprite);
     }
     
@@ -38,6 +35,8 @@
             if(i == DELAY*3){
                 stop;
                 stage.switchBackdropTo(gameover);
+                deleteSprite(cat);
+                deleteSprite(dog);
             }
             document.getElementById('timer').innerHTML = i+1;
             i++;
@@ -46,22 +45,15 @@
     })
 
     stage.whenFlag(function() { // normal function
-        this.playSoundUntilDone('sounds/GoGo.mp3');
-        let i = 0;
-        let delayStep = DELAY;
+        //this.playSoundUntilDone('sounds/GoGo.mp3');
+        let delayStep = 0;
         while(true){
-            stage.switchBackdropToNum(i);
-            if(i == 1){
-                i = 0;
-            }else{
-                i++;
-            }
             this.wait(DELAY);
             delayStep += DELAY;
             if(delayStep == DELAY*3){
                 cat.say("I win!");
                 stop;
-            
+            }
         }
         stage.switchBackdropTo(gameover);
         deleteSprite(dog);
@@ -72,8 +64,9 @@
     function isGameOver(){
         if(dog.isTouching(cat)){
             dog.say("I win!");
-            stage.removeSprite(cat);
-            stage.removeSprite(dog);
+            stage.switchBackdropTo(gameover);
+            deleteSprite(cat);
+            deleteSprite(dog);
         }
     }
 </script>
