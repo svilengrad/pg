@@ -19,30 +19,19 @@
         image: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2fb2821a-1406-4a1d-9b04-6668f278e944/d874gjl-59e79083-fec5-4234-8879-2aa8afd7f9f4.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMmZiMjgyMWEtMTQwNi00YTFkLTliMDQtNjY2OGYyNzhlOTQ0XC9kODc0Z2psLTU5ZTc5MDgzLWZlYzUtNDIzNC04ODc5LTJhYThhZmQ3ZjlmNC5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.UMFdXoCcqHSZ0U3dFWt8351ncIACJOCM9Zrb_tBzx90'
     });
     let gameover = new blockLike.Backdrop({
-        image: 'https://ak.picdn.net/shutterstock/videos/1023701914/thumb/8.jpg'
+        image: "./images/gameover.png"
     });
+    let gameover1 = new blockLike.Backdrop({
+        image: "./images/gameover1.png"
+    })
     stage.addBackdrop(forest);
     stage.addBackdrop(gameover);
+    stage.addBackdrop(gameover1);
 
     function deleteSprite(sprite){
         sprite.say("");
         stage.removeSprite(sprite);
     }
-    
-    stage.whenFlag(function() {
-        let i = 0;
-        while(true) {
-            if(i == DELAY*3){
-                stop;
-                stage.switchBackdropTo(gameover);
-                deleteSprite(cat);
-                deleteSprite(dog);
-            }
-            document.getElementById('timer').innerHTML = i+1;
-            i++;
-            this.wait(1);
-        }
-    })
 
     stage.whenFlag(function() { // normal function
         //this.playSoundUntilDone('sounds/GoGo.mp3');
@@ -55,11 +44,30 @@
                 stop;
             }
         }
-        stage.switchBackdropTo(gameover);
+        stage.switchBackdropTo(gameover1);
         deleteSprite(dog);
         deleteSprite(cat);
     });
 
+
+    
+    stage.whenFlag(function() {
+        this.playSoundUntilDone('sounds/GoGo.mp3');
+        let i = 0;
+        while(true) {
+            if(i == DELAY*3){
+                stop;
+                stage.switchBackdropTo(gameover1);
+                deleteSprite(cat);
+                deleteSprite(dog);
+            }
+            document.getElementById('timer').innerHTML = i+1;
+            i++;
+            this.wait(1);
+        }
+    })
+
+    
     //helpers
     function isGameOver(){
         if(dog.isTouching(cat)){
