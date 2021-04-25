@@ -1,3 +1,8 @@
+
+/*
+ * Preparations
+ */
+
 let dog = new blockLike.Sprite({
     width: 100,
     height: 100,
@@ -9,10 +14,18 @@ dog.addTo(stage);
 dog.setRotationStyle('left-right');
 dog.pointInDirection(-90);
 
+/*
+ * START
+ */
+
 dog.whenFlag(function() {
     this.changeX(-300);
     this.say("Run cat!");
 });
+
+/*
+ * Movement Controls
+ */
 
 dog.whenKeyPressed('w', function(){
     if(this.y < stage.height/2-100){
