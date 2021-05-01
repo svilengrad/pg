@@ -1,3 +1,7 @@
+/*
+ * Preparations
+ */
+
 let cat = new blockLike.Sprite({
     width: 100,
     height: 100,
@@ -9,10 +13,18 @@ cat.addTo(stage);
 cat.setRotationStyle('left-right');
 cat.pointInDirection(-90);
 
+/*
+ * START
+ */
+
 cat.whenFlag(function() {
     this.changeX(300);
     this.say("Catch me if you can!");
 });
+
+/*
+ * Keys & Movements
+ */
 
 
 cat.whenKeyPressed(39, function () {// right arrow

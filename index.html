@@ -13,11 +13,14 @@
 <script>
 
     /*
-     * Preparations
+     * Preparations ^
      */
-    
-    // Time until cat wins
-    const DELAY = 5;
+
+    const DELAY = 5; //Time until Cat wins
+
+    /*
+     * Backdrops
+     */
 
     let stage = new blockLike.Stage();
     let forest = new blockLike.Backdrop({
@@ -33,15 +36,11 @@
     stage.addBackdrop(gameover);
     stage.addBackdrop(gameover1);
 
-    function deleteSprite(sprite){
-        sprite.say("");
-        stage.removeSprite(sprite);
-    }
-
     /*
-     *
+     * Timer & Cat Winner
      */
-    stage.whenFlag(function() { // normal function
+    
+     stage.whenFlag(function() { 
         //this.playSoundUntilDone('sounds/GoGo.mp3');
         let delayStep = 0;
         while(true){
@@ -53,6 +52,8 @@
             }
         }
         stage.switchBackdropTo(gameover1);
+        cat.say("");
+        dog.say("");
         deleteSprite(dog);
         deleteSprite(cat);
     });
@@ -64,6 +65,8 @@
             if(i == DELAY*3){
                 stop;
                 stage.switchBackdropTo(gameover1);
+                cat.say("");
+                dog.say("");
                 deleteSprite(cat);
                 deleteSprite(dog);
             }
@@ -73,17 +76,31 @@
         }
     })
 
-    //helpers
+    /*
+     * Dog Winner
+     */
+
     function isGameOver(){
         if(dog.isTouching(cat)){
             dog.say("I win!");
             stage.switchBackdropTo(gameover);
+            cat.say("");
+            dog.say("");
             deleteSprite(cat);
             deleteSprite(dog);
         }
     }
+
 </script>
 <script src="sprites/cat.js"></script>
 <script src="sprites/dog.js"></script>
+ 
+<button type = "button" id = "restart" onclick = "restartGame()">Play Again</button> 
+<script> 
+function restartGame() {
+    var x = document.getElementById("restart");
+    x.disabled = true;
+}
+</script>
 </body>
 </html>

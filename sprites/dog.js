@@ -1,4 +1,3 @@
-
 /*
  * Preparations
  */
@@ -24,7 +23,7 @@ dog.whenFlag(function() {
 });
 
 /*
- * Movement Controls
+ * Keys & Movement
  */
 
 dog.whenKeyPressed('w', function(){
