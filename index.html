@@ -56,6 +56,9 @@
         dog.say("");
         deleteSprite(dog);
         deleteSprite(cat);
+        setTimeout(()=>{
+            location.reload()
+        },5000)
     });
 
     stage.whenFlag(function() {
@@ -88,19 +91,14 @@
             dog.say("");
             deleteSprite(cat);
             deleteSprite(dog);
+            setTimeout(()=>{
+                location.reload()
+            },5000)
         }
     }
 
 </script>
 <script src="sprites/cat.js"></script>
 <script src="sprites/dog.js"></script>
- 
-<button type = "button" id = "restart" onclick = "restartGame()">Play Again</button> 
-<script> 
-function restartGame() {
-    var x = document.getElementById("restart");
-    x.disabled = true;
-}
-</script>
 </body>
 </html>
