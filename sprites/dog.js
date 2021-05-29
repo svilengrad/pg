@@ -17,7 +17,7 @@ dog.pointInDirection(-90);
  * START
  */
 
-dog.whenFlag(function() {
+dog.whenRecieveMessage('Start' , function() {
     this.changeX(-300);
     this.say("Run cat!");
 });

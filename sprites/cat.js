@@ -17,7 +17,7 @@ cat.pointInDirection(-90);
  * START
  */
 
-cat.whenFlag(function() {
+cat.whenRecieveMessage('Start' , function() {
     this.changeX(300);
     this.say("Catch me if you can!");
 });
