@@ -40,7 +40,7 @@
      * Timer & Cat Winner
      */
     
-     stage.whenClicked(function() { 
+     stage.whenFlag(function() { 
       stage.broadcastMessage('Start')
         //this.playSoundUntilDone('sounds/GoGo.mp3');
         let delayStep = 0;
@@ -59,8 +59,8 @@
         deleteSprite(cat);
     });
 
-    stage.whenClicked(function() {
-    stage.broadcastMessage('Start')
+    stage.whenFlag(function() {
+     stage.broadcastMessage('Start')
         //this.playSoundUntilDone('sounds/GoGo.mp3');
         let i = 0;
         while(true) {
@@ -76,7 +76,7 @@
             i++;
             this.wait(1);
         }
-    })
+    });
 
     /*
      * Dog Winner

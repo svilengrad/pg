@@ -20,7 +20,7 @@ dog.pointInDirection(-90);
 dog.whenRecieveMessage('Start' , function() {
     this.changeX(-300);
     this.say("Run cat!");
-});
+})
 
 /*
  * Keys & Movement
