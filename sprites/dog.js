@@ -17,9 +17,10 @@ dog.pointInDirection(-90);
  * START
  */
 
-dog.whenRecieveMessage('Start' , function() {
+dog.whenReceiveMessage('Start' , function() {
     this.changeX(-300);
     this.say("Run cat!");
+    this.show();
 })
 
 /*

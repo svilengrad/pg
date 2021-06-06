@@ -36,6 +36,12 @@
     stage.addBackdrop(gameover);
     stage.addBackdrop(gameover1);
 
+    function waitAndRestart(){
+        stage.wait(10);
+        stage.broadcastMessage ('Start');
+        stage.switchBackdropTo(forest);
+    } 
+
     /*
      * Timer & Cat Winner
      */
@@ -55,8 +61,9 @@
         stage.switchBackdropTo(gameover1);
         cat.say("");
         dog.say("");
-        deleteSprite(dog);
-        deleteSprite(cat);
+        dog.hide();
+        cat.hide();
+        waitAndRestart();
     });
 
     stage.whenFlag(function() {
@@ -69,8 +76,9 @@
                 stage.switchBackdropTo(gameover1);
                 cat.say("");
                 dog.say("");
-                deleteSprite(cat);
-                deleteSprite(dog);
+                cat.hide();
+                dog.hide();
+                waitAndRestart();
             }
             document.getElementById('timer').innerHTML = i+1;
             i++;
@@ -88,8 +96,9 @@
             stage.switchBackdropTo(gameover);
             cat.say("");
             dog.say("");
-            deleteSprite(cat);
-            deleteSprite(dog);
+            cat.hide();
+            dog.hide();
+            waitAndRestart();
         }
     }
 

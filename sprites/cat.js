@@ -17,9 +17,11 @@ cat.pointInDirection(-90);
  * START
  */
 
-cat.whenRecieveMessage('Start', function() {
+cat.whenReceiveMessage('Start', function() {
+    console.log("message received");
     this.changeX(300);
     this.say("Catch me if you can!");
+    this.show();
 })
 
 /*
