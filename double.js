@@ -1,6 +1,11 @@
-let arr = [2, 3]
-if(arr = [2, 2]) {
-    console.log("true")
-}else {
-    console.log("false")
+let arr = 33
+
+if(arr == 22) 
+    console.log(true);
+
+if(arr == 33)
+    console.log(true);
+
+else{
+    console.log(false);
 }
