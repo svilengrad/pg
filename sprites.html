@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <style>
+                .container {
+                    position: relative;
+                }
+                #clip  {
+                        position: absolute;
+                        clip: rect(0, 100, 200, 0);
+                    }
+            </style>
+            <script>
+                function DonkeyKong() {
+                    
+                    document.getElementById("kong").style =
+
+                        `position: absolute; left: ` + 0 + `; top: ` + 0 + `; height: 42px; width: 50px; background: url( https://github.com/svilengrad/DonkeyKong/blob/d23502ddcfd4b3ce3e9ae8d5a8e3d7d1a86aa25c/sprites/misc-8.gif?raw=true) -105px 80px;`;
+                
+                }
+            </script>
+        </head>
+        <body onload="DonkeyKong();">
+            
+            <div style="position: relative; ">
+        
+                <div style="position: absolute; top: 0; left: 0; z-index: 11; " id="kong"></div>
+            </div>
+        </body>
+    </html>
